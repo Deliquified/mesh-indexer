@@ -24,13 +24,13 @@ Mesh.DataChanged.handler(async ({ event, context }) => {
 
 Mesh.OperatorAuthorizationChanged.handler(async ({ event, context }) => {
   const entity: Mesh_OperatorAuthorizationChanged = {
-    id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
+    id: `${event.chainId}_${event.block.number}_${event.logIndex}`, 
     operator: event.params.operator,
     tokenOwner: event.params.tokenOwner,
     amount: event.params.amount,
     operatorNotificationData: event.params.operatorNotificationData,
   };
-
+ 
   context.Mesh_OperatorAuthorizationChanged.set(entity);
 });
 
