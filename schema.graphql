@@ -1,0 +1,44 @@
+type Mesh_DataChanged {
+  id: ID!
+  dataKey: String!
+  dataValue: String!
+}
+
+type Mesh_OperatorAuthorizationChanged {
+  id: ID!
+  operator: String!
+  tokenOwner: String!
+  amount: BigInt!
+  operatorNotificationData: String!
+}
+
+type Mesh_OperatorRevoked {
+  id: ID!
+  operator: String!
+  tokenOwner: String!
+  notified: Boolean!
+  operatorNotificationData: String!
+}
+
+type Mesh_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type Mesh_Transfer {
+  id: ID!
+  operator: String!
+  from: String!
+  to: String!
+  amount: BigInt!
+  force: Boolean!
+  data: String!
+}
+
+type MintTracking @entity {
+  id: String! # This will be the wallet address
+  mintCount: Int!
+  lastMintTime: BigInt!
+  totalMinted: BigInt!
+}

@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 42
+  start_block: 0
+  contracts:
+  - name: Mesh
+    address:
+    - 0xc235119F4F41Ba62285a1bF872C00d97dEd0b03A
+    handler: src/EventHandlers.ts
+    events:
+    - event: DataChanged(bytes32 indexed dataKey, bytes dataValue)
+    - event: OperatorAuthorizationChanged(address indexed operator, address indexed tokenOwner, uint256 indexed amount, bytes operatorNotificationData)
+    - event: OperatorRevoked(address indexed operator, address indexed tokenOwner, bool indexed notified, bytes operatorNotificationData)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: Transfer(address indexed operator, address indexed from, address indexed to, uint256 amount, bool force, bytes data)
+rollback_on_reorg: false
