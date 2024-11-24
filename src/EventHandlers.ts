@@ -74,7 +74,7 @@ Mesh.Transfer.handler(async ({ event, context }) => {
     const mintEntity = {
       id: event.params.to,
       mintCount: 1,
-      lastMintTime: event.block.timestamp,
+      lastMintTime: BigInt(event.block.timestamp),
       totalMinted: event.params.amount
     };
      // Get existing mint data if any
